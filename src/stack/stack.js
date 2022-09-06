@@ -5,6 +5,14 @@ class Stack {
     this.topItem = null
   }
 
+  getLength() {
+    return this.length
+  }
+
+  getTopItem() {
+    return this.topItem
+  }
+
   push(item) {
     this.items = [...this.items, item]
     this.length = this.length + 1
