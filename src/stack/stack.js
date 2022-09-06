@@ -11,10 +11,10 @@ class Stack {
     this.topItem = this.items[this.length - 1]
   }
   pop() {
-    if (this.length <= 0) return
+    if (this.length <= 0) throw new Error('items are empty')
     this.items.pop()
     this.length = this.length - 1
-    this.topItem = this.items[this.length - 1]
+    this.topItem = this.items[this.length - 1] || null
   }
 }
 
