@@ -1,6 +1,5 @@
 class Stack {
   constructor() {
-    this.items = []
     this.length = 0
     this.topItem = null
   }
@@ -10,19 +9,18 @@ class Stack {
   }
 
   getTopItem() {
-    return this.topItem
+    return this.topItem?.item || null
   }
 
   push(item) {
-    this.items = [...this.items, item]
-    this.length = this.length + 1
-    this.topItem = this.items[this.length - 1]
+    const node = { item, next: this.topItem }
+    this.topItem = node
+    this.length++
   }
   pop() {
     if (this.length <= 0) throw new Error('items are empty')
-    this.items.pop()
-    this.length = this.length - 1
-    this.topItem = this.items[this.length - 1] || null
+    this.topItem = this.topItem.next || null
+    this.length--
   }
 }
 
